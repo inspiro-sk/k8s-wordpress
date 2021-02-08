@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: wordpress-pv
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: "2Gi"
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: manual
+  hostPath:
+    path: "/data/wordpress-pv" # location of volume inside the cluster; /data is persisted on minikube stop
+# https://minikube.sigs.k8s.io/docs/handbook/persistent_volumes/
