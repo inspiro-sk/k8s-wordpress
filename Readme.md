@@ -9,6 +9,7 @@ Here is a detailed step by step how to install wordpress in local minikube clust
 3. [Create secrets.yml](#k8s%20secrets)
 4. [Config map for MySQL](#configmap)
 5. [Deployment file](#create%20deployment%20file)
+6. [Service](#service)
 
 ### Prerequisites
 
@@ -83,8 +84,12 @@ Two containers will be needed in `deployment.yml`:
 1. wordpress
 2. mysql
 
-Create `deployment.yml` which will accomplish this. First we will test withoout the persistent volume to check if we are on the right path.
+Create `deployment.yml` which will accomplish this. To create the actual deployment you can run `kubectl apply -f deployment.yml` and wait for the containers to create and start.
 
-Since we are using MySQL version 8, we need to create config map in kubernetes to change default authentication mode. So create and apply `config-map.yml` to accomplish the task.
+### Service
 
-Next step is to create persistent volume so that we can create persisten storage. Use `pers_volume.yml` and apply. Afterwards you can create persistent volume claim to claim this volume. Effectively this can be used to 'reserve' certain portion of PV storage capacity for purpose.
+This is the final step in the process which will expose WP container outside of the cluster. For this we need to create a service using `service.yml` and the `kubectl apply -f service.yml` - this will expose a port that we can access outside of our minikube cluster.
+
+The final step will be to run `minikube service wordpress-service` and wait the browser to open on assigned url and port. 
+
+You are now ready to start using wordpress installation running in your kubernetes cluster.
