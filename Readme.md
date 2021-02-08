@@ -45,6 +45,7 @@ data:
 ```
 
 Put this code into `config-map.yml` file and to apply config map run `kubectl apply -f config-map.yml` You can cbeck what config maps you have defined by running `kubectl get cm`
+Alternatively we can just pass this as `args` from deployment file.
 
 ### Persistent volume and persistent volume claim
 
