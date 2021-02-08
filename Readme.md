@@ -13,11 +13,11 @@ Here is a detailed step by step how to install wordpress in local minikube clust
 
 ### Prerequisites
 
-This tutorial assumes you have access to a cluster or have a local cluster installed and running. One of the options is [minikbe](https://minikube.sigs.k8s.io/docs/start/) which has been working for me without issues.
+This tutorial assumes you have access to a cluster or have a local cluster installed and running. One of the options is [minikube](https://minikube.sigs.k8s.io/docs/start/) which has been working for me without issues. This tutorial assumes minikube is installed and running on your machine.
 
 ### Where to start
 
-First let's think about what containers do we need to create. We will need one container to run our database (wordpress backend) and one for wordpress itself. [Docker Hub](https://hub.docker.com) will be our source of images.
+First let's think about what containers do we need to create. We will need one container to run our MySQL database (wordpress backend) and one for wordpress itself. [Docker Hub](https://hub.docker.com) will be our source of images. What images are we using will be defined in deployment.
 
 ### k8s Secrets
 
@@ -46,7 +46,7 @@ data:
 ```
 
 Put this code into `config-map.yml` file and to apply config map run `kubectl apply -f config-map.yml` You can cbeck what config maps you have defined by running `kubectl get cm`
-Alternatively we can just pass this as `args` from deployment file.
+Alternatively we can just pass this as `args` from deployment file (TBD).
 
 ### Persistent volume and persistent volume claim
 
