@@ -2,15 +2,6 @@
 
 Here is a detailed step by step how to install wordpress in local minikube cluster with WP and MySQL. Use this as a simple tutorial to cover basic concepts of Kubernetes setup and usage. This has been my notebook to document learning process of various steps to do when starting with Kubernetes.
 
-### Table of contents
-
-1. [Prerequisites](#prerequisites)
-2. [Where to start](#where%20to%20start)
-3. [Create secrets.yml](#k8s%20secrets)
-4. [Config map for MySQL](#configmap)
-5. [Deployment file](#create%20deployment%20file)
-6. [Service](#service)
-
 ### Prerequisites
 
 This tutorial assumes you have access to a cluster or have a local cluster installed and running. One of the options is [minikube](https://minikube.sigs.k8s.io/docs/start/) which has been working for me without issues. This tutorial assumes minikube is installed and running on your machine.
